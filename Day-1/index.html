@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivyansh Thakur | Full Stack + AI Journey</title>
+    <meta name="description" content="Day 1 of my Full Stack + AI journey: HTML fundamentals, semantic structure, and accessible forms.">
+    <meta property="og:title" content="Shivyansh Thakur | Full Stack + AI Journey">
+    <meta property="og:description" content="HTML fundamentals, semantic structure, and accessible forms.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+ 
+    <header>
+        <p class="logo">Day-1 (Full Stack + AI Journey)</p>
+        <nav aria-label="Main">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+ 
+    <main id="main">
+        <section id="home">
+            <h1>Who am I?</h1>
+            <p>Shivyansh Thakur, a final year student documenting my full stack + AI journey.</p>
+        </section>
+ 
+        <section id="about" class="about-me">
+            <h2>About</h2>
+            <p>
+                The roadmap covers HTML / CSS / JavaScript, TypeScript, React, Next.js,
+                Node.js / Express, MongoDB / PostgreSQL, Redis, GSAP / Three.js / React Three Fiber,
+                Testing, Docker / CI/CD, AI / LLMs, Embeddings / Vector Databases, RAG, AI Agents,
+                Realtime systems, System Design, Cloud / Deployment, Security / Performance,
+                and DSA and interview preparation.
+            </p>
+            <p>
+                I am learning <strong>HTML first</strong>, then <em>CSS</em>, and my goal is
+                <span class="highlight">job-ready skills</span>.
+            </p>
+            <p>To write a section tag, type <code>&lt;section&gt;</code>. HTML &amp; CSS are the foundation.</p>
+ 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZlpic9wco7-rIQ3fD7Ehc5eUI8Zsatygxd3OLC2EJiWNWn9c0JHdLLoA&s" alt="butterfly resting on a flower" width="400" height="300">
+ 
+            <audio controls loop>
+                <source src="./sounds/freesound_community-butterfly-wings-fluttering-2-28738.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+ 
+        <section id="skills">
+            <h2>Skills</h2>
+            <h3>Shivyansh Thakur</h3>
+            <ul>
+                <li>Front-End Developer</li>
+                <li>Back-End Developer</li>
+                <li>AI Developer</li>
+            </ul>
+ 
+            <h3>My motto</h3>
+            <ol>
+                <li>Let's</li>
+                <li>Conquer</li>
+                <li>This</li>
+            </ol>
+ 
+            <table border="1">
+                <caption>My target</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Target</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shivyansh</td>
+                        <td>Conquer my dreams</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+ 
+        <section id="projects">
+            <h2>Projects</h2>
+            <article class="project" data-project-id="1" data-category="html" data-featured="true">
+                <h3>Developer Portfolio Landing Page</h3>
+                <p>Semantic HTML page with an accessible contact form.</p>
+                <a href="#contact">Get in touch about this project</a>
+            </article>
+            <button type="button" aria-label="Close project details">&times;</button>
+        </section>
+ 
+        <section id="contact">
+            <h2>Contact</h2>
+            <form action="#" method="post">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name">
+                </div>
+ 
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
+ 
+                <div class="field">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"
+                           title="Enter a 10-digit phone number" inputmode="numeric"
+                           autocomplete="tel" aria-describedby="phone-hint">
+                    <small id="phone-hint">10 digits, no spaces.</small>
+                </div>
+ 
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+                </div>
+ 
+                <div class="field">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="18" max="99" step="1">
+                </div>
+ 
+                <fieldset>
+                    <legend>Preferred contact method</legend>
+                    <input type="radio" id="contact-email" name="contact-method" value="email" checked>
+                    <label for="contact-email">Email</label>
+                    <input type="radio" id="contact-phone" name="contact-method" value="phone">
+                    <label for="contact-phone">Phone</label>
+                </fieldset>
+ 
+                <button type="submit">Submit</button>
+                <p id="form-status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+ 
+    <footer>
+        <p>&copy; 2026 Shivyansh Thakur</p>
+    </footer>
+</body>
+</html>
+ 
