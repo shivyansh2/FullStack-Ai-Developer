@@ -1,0 +1,207 @@
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #0f1117;
+  color: #e7e9ee;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* ---------- Header / Nav ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px 24px;
+  background: rgba(15, 17, 23, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #262a35;
+}
+
+header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #9aa3b2;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  color: #e7e9ee;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+nav a:hover {
+  color: #6ee7d8;
+  border-color: #6ee7d8;
+}
+
+/* ---------- Main sections ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+main > section {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0;
+  border-bottom: 1px solid #1c2029;
+}
+
+main > section:last-child {
+  border-bottom: none;
+}
+
+section h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+section p {
+  font-size: 16px;
+  color: #b7bec9;
+  max-width: 600px;
+}
+
+/* ---------- Home ---------- */
+.main h1 {
+  background: linear-gradient(90deg, #6ee7d8, #9b7fe0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- About ---------- */
+.About h1 {
+  color: #e7e9ee;
+}
+
+/* ---------- Contact ---------- */
+.contact ul {
+  list-style: none;
+  margin: 20px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact ul li {
+  font-size: 15px;
+  color: #b7bec9;
+}
+
+.contact ul a {
+  color: #6ee7d8;
+  text-decoration: none;
+}
+
+.contact ul a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Contact form ---------- */
+form {
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #9aa3b2;
+}
+
+.form-group input,
+.form-group textarea {
+  background: #1a1d26;
+  border: 1.5px solid #2b303b;
+  border-radius: 8px;
+  padding: 11px 13px;
+  font-size: 14px;
+  color: #e7e9ee;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6ee7d8;
+}
+
+form button {
+  align-self: flex-start;
+  background: #6ee7d8;
+  color: #0f1117;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+form button:hover {
+  opacity: 0.88;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  main > section {
+    min-height: auto;
+    padding: 40px 0;
+  }
+}
