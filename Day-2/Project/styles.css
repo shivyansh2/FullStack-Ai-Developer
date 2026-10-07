@@ -1,0 +1,89 @@
+:root{
+    --bg:#eef2f6;
+    --ink:#14213d;
+    --accent:#2f4bff;
+    --warm:#ff7a45;
+    --gap:1.5rem;
+    /*Responsive typography:clamp(min,fluid,max)*/
+    --fs-h1:clamp(2rem, 1rem +5vw,4rem);
+    --fs-body:clamp(1rem,0.95rem+0.3vw,1.125rem);
+    --header-h:3.5rem;
+}
+*,*::before,*::after{box-sizing: border-box;}
+html{scroll-behavior: smooth;scroll-padding-top: var(--header-h);}
+body{margin: 0;font: var(--fs-body)/1.6 system-ui,sans-serif; background: var(--bg);color: var(--ink);}
+h1{font-size: var(--fs-h1);margin: 0 0 0.5rem; line-height: 1.1;}
+a{color: inherit;}
+
+/*Pseudo classes*/
+:focus-visible{outline: 3px solid var(--warm); outline-offset: 3px;}
+
+.skip-link{
+    position: absolute;top: -3rem;left: 1rem;background: var(--ink);color: #fff;padding: 0.5rem 1rem;z-index: 200;;
+}
+.skip-link:focus{
+    top: 1rem;
+}
+
+/*Fluid Layout:min() + calc()*/
+.section,.hero{width: min(100%-2rem,64rem);margin-inline: auto; padding-block: 3rem;}
+/* POSITIONING: sticky + z-index */
+.header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #c9d3e0; }
+ 
+/* FLEXBOX NAVBAR (mobile-first) */
+.nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; width: min(100% - 2rem, 64rem); margin-inline: auto; min-height: var(--header-h); }
+.logo { font-weight: 700; text-decoration: none; }
+/* PSEUDO-ELEMENT */
+.logo::after { content: "."; color: var(--warm); }
+.menu-btn { padding: 0.5rem 1rem; border: 2px solid var(--ink); border-radius: 999px; background: none; cursor: pointer; }
+.menu { display: none; flex: 1 0 100%; list-style: none; margin: 0; padding: 0.5rem 0 1rem; }
+.menu.open { display: block; }
+.menu a { display: block; padding: 0.5rem 0; text-decoration: none; }
+.menu a:hover { color: var(--accent); }
+ 
+/* HERO: grid-template-areas */
+.hero { display: grid; gap: var(--gap); align-items: center; grid-template-areas: "text" "pic"; }
+.hero-text { grid-area: text; }
+.avatar { grid-area: pic; width: 100%; max-width: 16rem; aspect-ratio: 1; object-fit: cover; border-radius: 50%; } /* OBJECT-FIT + ASPECT-RATIO */
+ 
+/* TRANSITION + TRANSFORM */
+.btn { display: inline-block; padding: 0.75rem 1.5rem; background: var(--accent); color: #fff; border-radius: 999px; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+.btn:hover { transform: translateY(-3px) scale(1.03); background: var(--ink); }
+ 
+/* GRID: auto-fill with minmax and repeat */
+.skills { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }
+.skills li { padding: 0.6rem; text-align: center; background: #fff; border: 1.5px solid #c9d3e0; border-radius: 0.25rem; }
+ 
+/* GRID: auto-fit with minmax */
+.cards { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.card { background: #fff; border: 1px solid #c9d3e0; border-radius: 0.5rem; padding: 1rem; transition: transform 0.25s; }
+.card:hover { transform: translateY(-4px); }
+.card:nth-child(even) .thumb { background: linear-gradient(135deg, var(--ink), var(--accent)); }
+.thumb { aspect-ratio: 16 / 9; display: grid; place-items: center; margin-bottom: 1rem; border-radius: 0.25rem; color: #fff; font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--warm)); }
+ 
+/* FOOTER: flex-grow, flex-basis, order */
+.footer { display: flex; flex-wrap: wrap; gap: 1rem; padding: 2rem 1rem; background: var(--ink); color: #fff; }
+.f-copy { flex: 1 1 12rem; margin: 0; order: 2; }
+.f-links { flex: 0 1 auto; display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0; order: 1; }
+ 
+/* KEYFRAME ANIMATION: one-time entrance */
+@keyframes rise { from { opacity: 0; transform: translateY(1.5rem); } }
+.hero-text { animation: rise 0.7s ease-out both; }
+ 
+/* MEDIA QUERIES: tablet and desktop */
+@media (min-width: 48em) {
+  .menu-btn { display: none; }
+  .menu { display: flex; flex: 0 0 auto; gap: 1.5rem; padding: 0; }
+  .f-copy { order: 1; }
+  .f-links { order: 2; }
+}
+@media (min-width: 60em) {
+  .hero { grid-template-columns: 1.5fr 1fr; grid-template-areas: "text pic"; }
+  .avatar { justify-self: end; }
+}
+ 
+/* ACCESSIBILITY: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+ 
