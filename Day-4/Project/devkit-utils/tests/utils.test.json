@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { unique, chunk, isPalindrome, pick } from '../src/index.js';
+
+test('unique removes duplicates', () => {
+  assert.deepEqual(unique([1, 1, 2, 3, 3]), [1, 2, 3]);
+});
+
+test('chunk splits an array', () => {
+  assert.deepEqual(chunk([1, 2, 3, 4, 5], 2), [[1, 2], [3, 4], [5]]);
+});
+
+test('isPalindrome ignores case and symbols', () => {
+  assert.equal(isPalindrome('A man, a plan, a canal: Panama'), true);
+  assert.equal(isPalindrome('hello'), false);
+});
+
+test('pick keeps only the chosen keys', () => {
+  assert.deepEqual(pick({ a: 1, b: 2, c: 3 }, ['a', 'c']), { a: 1, c: 3 });
+});

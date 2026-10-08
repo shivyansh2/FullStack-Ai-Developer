@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REST API Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+  <h1>REST API Explorer</h1>
+  <p class="sub">Live HTTP requests against JSONPlaceholder — watch status codes and JSON responses change per method.</p>
+ 
+  <div class="grid">
+ 
+    <!-- GET -->
+    <div class="card">
+      <h2>GET /posts/1</h2>
+      <p class="explain">Reads a resource. Safe and idempotent — calling it repeatedly never changes anything on the server.</p>
+      <button class="GET" data-method="GET" data-url="https://jsonplaceholder.typicode.com/posts/1" data-output="get-out">Send GET</button>
+      <div id="get-out" class="output"></div>
+    </div>
+ 
+    <!-- POST -->
+    <div class="card">
+      <h2>POST /posts</h2>
+      <p class="explain">Creates a new resource. NOT idempotent — calling it twice creates two resources. Expect 201 Created.</p>
+      <button class="POST" data-method="POST" data-url="https://jsonplaceholder.typicode.com/posts"
+        data-body='{"title":"Day 3 notes","body":"Learning REST","userId":1}' data-output="post-out">Send POST</button>
+      <div id="post-out" class="output"></div>
+    </div>
+ 
+    <!-- PUT -->
+    <div class="card">
+      <h2>PUT /posts/1</h2>
+      <p class="explain">Replaces the ENTIRE resource with the body sent. Idempotent — sending it twice leaves the same end state.</p>
+      <button class="PUT" data-method="PUT" data-url="https://jsonplaceholder.typicode.com/posts/1"
+        data-body='{"id":1,"title":"Fully replaced title","body":"Fully replaced body","userId":1}' data-output="put-out">Send PUT</button>
+      <div id="put-out" class="output"></div>
+    </div>
+ 
+    <!-- PATCH -->
+    <div class="card">
+      <h2>PATCH /posts/1</h2>
+      <p class="explain">Updates ONLY the fields sent. Everything else on the resource is left untouched.</p>
+      <button class="PATCH" data-method="PATCH" data-url="https://jsonplaceholder.typicode.com/posts/1"
+        data-body='{"title":"Only the title changed"}' data-output="patch-out">Send PATCH</button>
+      <div id="patch-out" class="output"></div>
+    </div>
+ 
+    <!-- DELETE -->
+    <div class="card">
+      <h2>DELETE /posts/1</h2>
+      <p class="explain">Removes the resource. Idempotent — deleting something already gone still ends with "it's gone".</p>
+      <button class="DELETE" data-method="DELETE" data-url="https://jsonplaceholder.typicode.com/posts/1" data-output="del-out">Send DELETE</button>
+      <div id="del-out" class="output"></div>
+    </div>
+ 
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 
