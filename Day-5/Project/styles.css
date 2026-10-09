@@ -1,0 +1,201 @@
+:root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #6366f1;
+    --accent-hover: #818cf8;
+    --danger: #f87171;
+    --success: #4ade80;
+    --radius: 0.5rem;
+    --space: 1rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent-hover);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -4rem;
+    left: var(--space);
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: var(--accent);
+    color: #fff;
+    border-radius: var(--radius);
+}
+
+.skip-link:focus {
+    top: var(--space);
+}
+
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space);
+    padding: 0.75rem var(--space);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--accent-hover);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+button.secondary:hover {
+    background: var(--border);
+}
+
+main {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: var(--space);
+}
+
+.timing {
+    margin: 0 0 var(--space);
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    gap: var(--space);
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.widget {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    min-height: 12rem;
+}
+
+.widget h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+}
+
+.widget[data-state="loading"] .body {
+    opacity: 0.6;
+}
+
+.widget[data-state="loading"] .body::before {
+    content: "Loading...";
+    color: var(--muted);
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+.widget[data-state="success"] {
+    border-color: var(--border);
+}
+
+.widget[data-state="error"] {
+    border-color: var(--danger);
+}
+
+.error {
+    margin: 0 0 0.75rem;
+    color: var(--danger);
+}
+
+.body ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.body li {
+    margin-bottom: 0.4rem;
+}
+
+.big {
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: var(--space);
+}
+
+.profile img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+footer {
+    padding: 1.5rem var(--space);
+    text-align: center;
+    color: var(--muted);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .widget[data-state="loading"] .body::before {
+        animation: none;
+    }
+}

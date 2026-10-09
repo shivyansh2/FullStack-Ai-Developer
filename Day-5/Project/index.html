@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Dashboard | Parallel API Calls</title>
+    <meta name="description" content="A dashboard that loads weather, GitHub, posts and products from four APIs in parallel, with independent loading, error and retry states.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="topbar">
+        <h1>Async Dashboard</h1>
+        <div class="actions">
+            <button type="button" id="refresh-all">Refresh all</button>
+            <button type="button" id="compare" class="secondary">Compare sequential vs parallel</button>
+        </div>
+    </header>
+
+    <main id="main">
+        <p id="timing" class="timing" role="status" aria-live="polite">Loading widgets...</p>
+
+        <div class="grid">
+            <section id="weather" class="widget" data-state="loading" aria-busy="true" aria-labelledby="weather-title">
+                <h2 id="weather-title">Weather (New Delhi)</h2>
+                <div class="body" aria-live="polite"></div>
+            </section>
+
+            <section id="github" class="widget" data-state="loading" aria-busy="true" aria-labelledby="github-title">
+                <h2 id="github-title">GitHub profile</h2>
+                <div class="body" aria-live="polite"></div>
+            </section>
+
+            <section id="posts" class="widget" data-state="loading" aria-busy="true" aria-labelledby="posts-title">
+                <h2 id="posts-title">Latest posts</h2>
+                <div class="body" aria-live="polite"></div>
+            </section>
+
+            <section id="products" class="widget" data-state="loading" aria-busy="true" aria-labelledby="products-title">
+                <h2 id="products-title">Products</h2>
+                <div class="body" aria-live="polite"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Each widget loads independently. A slow or failing API never blocks the others.</p>
+    </footer>
+</body>
+</html>
