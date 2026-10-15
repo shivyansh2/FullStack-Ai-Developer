@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { insertInterval, mergeIntervals } from '../lib/intervals'
+import { insertInterval, mergeIntervals } from '../lib/intervalc'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import Renders from './Renders'
 

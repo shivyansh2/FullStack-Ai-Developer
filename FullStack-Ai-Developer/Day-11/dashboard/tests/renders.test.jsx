@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { cleanup, render, screen } from '@testing-library/react'
+import { cleanup,render,  screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -19,7 +19,7 @@ vi.mock('../src/lib/mockChatApi', () => ({
 }))
 
 import App from '../src/App'
-import { renderCounts } from '../src/components/Renders'
+import { renderCounts } from '../src/lib/renderCounts'
 import { useDashboardStore } from '../src/store/dashboardStore'
 
 const snapshot = () => ({ ...renderCounts })
